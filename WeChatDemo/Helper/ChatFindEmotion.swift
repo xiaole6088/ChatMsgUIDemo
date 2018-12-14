@@ -12,6 +12,37 @@ class ChatFindEmotion: NSObject {
     // MARK:- 单例
     static let shared: ChatFindEmotion = ChatFindEmotion()
     
+    // MARK: - 富文本转正常 string
+    func textString(attrStr: NSAttributedString) -> String {
+        let resultAtt = NSMutableAttributedString(attributedString: attrStr)
+        attrStr.enumerateAttributes(in: NSRange(location: 0, length: attrStr.length), options: .reverse) { (attrs, range, stop) in
+            if let textAtt: NSTextAttachment = attrs[NSAttributedString.Key.attachment] as? NSTextAttachment {
+               
+                if let image = textAtt.image {
+                    let text = self.stringForImage(image: image)
+                    resultAtt.replaceCharacters(in: range, with: text)
+                }
+            }
+        }
+        return resultAtt.string
+    }
+    
+    func stringForImage(image: UIImage) -> String {
+        print(image)
+        var imageName = ""
+        let emotions = ChatEmotionHelper.getAllEmotions()
+        let imageData = image.pngData()
+        for emo in emotions where emo.imgPath != nil {
+            if let image = UIImage(contentsOfFile: emo.imgPath!) {
+                if image.pngData() == imageData {
+                    imageName = emo.text ?? ""
+                    print("匹配成功")
+                }
+            }
+        }
+        return imageName;
+    }
+    
     // MARK:- 查找属性字符串的方法
     func findAttrStr(text: String?, font: UIFont) -> NSMutableAttributedString? {
         guard let text = text else {

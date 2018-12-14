@@ -60,6 +60,8 @@ class ChatTextViewCell: BaseTableViewCell {
     }
     
     @objc func menuItemCopyAction() {
+        let text = ChatFindEmotion.shared.textString(attrStr: self.contentTextView.attributedText)
+        print(text)
         UIPasteboard.general.string = self.contentTextView.realStr
     }
     
