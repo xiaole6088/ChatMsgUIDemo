@@ -14,21 +14,9 @@ class ChatEmotionHelper: NSObject {
         var emotions: [ChatEmotion] = [ChatEmotion]()
         let plistPath = Bundle.main.path(forResource: "Expression", ofType: "plist")
         let array = NSArray(contentsOfFile: plistPath!) as! [[String : String]]
-        
-//        var index = 0
         for dict in array {
             emotions.append(ChatEmotion(dict: dict))
-//            index += 1
-//            if index == 23 {
-//                // 添加删除表情
-//                emotions.append(ChatEmotion(isRemove: true))
-//                index = 0
-//            }
         }
-        
-        // 添加空白表情
-//        emotions = self.addEmptyEmotion(emotiions: emotions)
-        
         return emotions
     }
     
@@ -60,12 +48,12 @@ class ChatEmotionHelper: NSObject {
         var newEmos: [[ChatEmotion]] = []
         
         // 表情总数(包括删除和空白占位)
-        let realAllCount = pageCount * Int(itemCount)
+//        let realAllCount = pageCount * Int(itemCount)
         
         var index: Int = 0
-        for page in 0..<pageCount {
+        for _ in 0..<pageCount {
             var sectionEmos: [ChatEmotion] = []
-            for item in 0..<(Int(itemCount) - 1) {
+            for _ in 0..<(Int(itemCount) - 1) {
                 if index < array.count {
                     // 真表情
                     let emo = ChatEmotion(dict: array[index])

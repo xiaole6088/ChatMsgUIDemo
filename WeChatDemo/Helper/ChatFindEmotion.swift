@@ -17,7 +17,7 @@ class ChatFindEmotion: NSObject {
         let resultAtt = NSMutableAttributedString(attributedString: attrStr)
         attrStr.enumerateAttributes(in: NSRange(location: 0, length: attrStr.length), options: .reverse) { (attrs, range, stop) in
             if let textAtt: NSTextAttachment = attrs[NSAttributedString.Key.attachment] as? NSTextAttachment {
-               
+                
                 if let image = textAtt.image {
                     let text = self.stringForImage(image: image)
                     resultAtt.replaceCharacters(in: range, with: text)
@@ -27,7 +27,7 @@ class ChatFindEmotion: NSObject {
         return resultAtt.string
     }
     
-    func stringForImage(image: UIImage) -> String {
+    private func stringForImage(image: UIImage) -> String {
         print(image)
         var imageName = ""
         let emotions = ChatEmotionHelper.getAllEmotions()
