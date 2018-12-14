@@ -113,6 +113,7 @@
 		BB52BE8C21C245AA002AF0DF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BB5819EF21BE7F7F00783C27 /* UIView+Extension.swift */,
 				BB52BE8D21C245C5002AF0DF /* StringExtension.swift */,
 			);
 			path = Extension;
@@ -155,16 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				BB8A2C5821BE328200432091 /* AppDelegate.swift */,
-				BB52BE8321C1F6C6002AF0DF /* ZhuanFaViewController.swift */,
-				BB52BE8521C1F6D1002AF0DF /* ZhuanFaViewController.storyboard */,
-				BB52BE8721C241A3002AF0DF /* ViewModel */,
-				BB8A2C5C21BE328200432091 /* Main.storyboard */,
-				BB8A2C5A21BE328200432091 /* ViewController.swift */,
-				BB5819EF21BE7F7F00783C27 /* UIView+Extension.swift */,
-				BBF8AB9721C146CC00E66382 /* CustomResponderTextView.swift */,
-				BB5819E621BE6CC400783C27 /* Cells */,
-				BB8A2C7A21BE3E0200432091 /* Emotion */,
-				BB8A2C7721BE3DA700432091 /* Model */,
+				BBAD1A7821C3841200EBB5DA /* MsgScreen */,
+				BBAD1A7921C3844900EBB5DA /* ForwardScreen */,
 				BB52BE8C21C245AA002AF0DF /* Extension */,
 				BB8A2C7221BE3D1200432091 /* Helper */,
 				BB8A2C5F21BE328500432091 /* Assets.xcassets */,
@@ -206,6 +199,29 @@
 				BBDA1F9221BFAD620007487B /* EmotionCell.xib */,
 			);
 			path = Emotion;
+			sourceTree = "<group>";
+		};
+		BBAD1A7821C3841200EBB5DA /* MsgScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BB8A2C5C21BE328200432091 /* Main.storyboard */,
+				BB8A2C5A21BE328200432091 /* ViewController.swift */,
+				BBF8AB9721C146CC00E66382 /* CustomResponderTextView.swift */,
+				BB8A2C7721BE3DA700432091 /* Model */,
+				BB52BE8721C241A3002AF0DF /* ViewModel */,
+				BB5819E621BE6CC400783C27 /* Cells */,
+				BB8A2C7A21BE3E0200432091 /* Emotion */,
+			);
+			path = MsgScreen;
+			sourceTree = "<group>";
+		};
+		BBAD1A7921C3844900EBB5DA /* ForwardScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BB52BE8321C1F6C6002AF0DF /* ZhuanFaViewController.swift */,
+				BB52BE8521C1F6D1002AF0DF /* ZhuanFaViewController.storyboard */,
+			);
+			path = ForwardScreen;
 			sourceTree = "<group>";
 		};
 		EE50420F96280661E862BF14 /* Pods */ = {
