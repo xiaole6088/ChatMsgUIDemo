@@ -246,6 +246,12 @@ class ViewController: UIViewController {
         }
     }
     
+    func sendMsg(msg: ChatMsgModel) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.msgViewModel.insertNewMessage(new: msg)
+        }
+    }
+    
     deinit {
         inputTextView.removeObserver(self, forKeyPath: "contentSize")
     }
@@ -357,6 +363,67 @@ extension ViewController: MoreSelectorDelegate {
     
     func takePhoto() {
         print("照相")
+    }
+    
+    func sendFile() {
+
+        let allowedUTIs = ["com.microsoft.powerpoint.​ppt",
+                           "com.microsoft.word.doc",
+                           "org.openxmlformats.wordprocessingml.document",
+                           "com.microsoft.excel.xls",
+                           "com.microsoft.powerpoint.​pptx",
+                           "com.microsoft.word.docx",
+                           "com.microsoft.excel.xlsx",
+                           "public.avi",
+                           "public.3gpp",
+                           "public.mpeg-4",
+                           "com.compuserve.gif",
+                           "public.jpeg",
+                           "public.png",
+                           "public.plain-text",
+                           "com.adobe.pdf",
+                           "com.apple.iwork.pages.pages",
+                           "com.apple.iwork.numbers.numbers",
+                           "com.apple.iwork.keynote.key"
+                           ]
+        
+        let documentPickerVC = UIDocumentPickerViewController(documentTypes: allowedUTIs, in: .open)
+        documentPickerVC.delegate = self
+        documentPickerVC.modalPresentationStyle = .formSheet
+        self.present(documentPickerVC, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        // 获取授权
+        let fileUrlAuthozied = urls.first?.startAccessingSecurityScopedResource()
+        if fileUrlAuthozied == true {
+            // 通过文件协调工具来得到新的文件地址，以此得到文件保护功能
+            let fileCoordinator = NSFileCoordinator()
+            fileCoordinator.coordinate(readingItemAt: urls.first!, options: NSFileCoordinator.ReadingOptions(rawValue: 0), error: nil) { [weak self] (newURL) in
+                // 读取文件
+                
+                let fileName = newURL.lastPathComponent
+                if let fileData = try? NSData(contentsOf: newURL, options: .mappedIfSafe) {
+
+                    // 发送文件
+                    let new = ChatMsgModel()
+                    new.modelType = .file
+                    new.messageObject = fileData
+                    new.messageObjectFileName = fileName
+                    new.userType = .me
+                    if let fileSize = try? FileManager.default.attributesOfItem(atPath: newURL.path) {
+                        new.fileLength = fileSize[FileAttributeKey.size] as? Int64
+                    }
+                    self?.sendMsg(msg: new)
+                    print(fileName)
+                }
+            }
+            urls.first?.stopAccessingSecurityScopedResource()
+        } else {
+            // 授权失败
+        }
     }
 }
 

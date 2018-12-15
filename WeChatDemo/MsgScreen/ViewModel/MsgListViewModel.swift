@@ -13,6 +13,7 @@ fileprivate let ChatTextCellID = "ChatTextCellID"
 fileprivate let ChatTextViewCellID = "ChatTextViewCellID"
 fileprivate let ChatImageCellID = "ChatImageCellID"
 fileprivate let ChatTimeCellID = "ChatTimeCellID"
+fileprivate let ChatFileCellID = "ChatFileCellID"
 fileprivate let ChatAudioCellID = "ChatAudioCellID"
 fileprivate let ChatVideoCellID = "ChatVideoCellID"
 
@@ -33,6 +34,7 @@ class MsgListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource, UI
         weakTableView?.register(ChatImageCell.classForCoder(), forCellReuseIdentifier: ChatImageCellID)
         weakTableView?.register(ChatTimeCell.classForCoder(), forCellReuseIdentifier: ChatTimeCellID)
         weakTableView?.register(ChatTextViewCell.classForCoder(), forCellReuseIdentifier: ChatTextViewCellID)
+        weakTableView?.register(ChatFileCell.classForCoder(), forCellReuseIdentifier: ChatFileCellID)
         weakTableView?.estimatedRowHeight = 0
         weakTableView?.estimatedSectionFooterHeight = 0
         weakTableView?.estimatedSectionHeaderHeight = 0
@@ -146,6 +148,10 @@ class MsgListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource, UI
         } else if model.modelType == .image {
             let cell: ChatImageCell = tableView.dequeueReusableCell(withIdentifier: ChatImageCellID, for: indexPath) as! ChatImageCell
             cell.model = dataArr[indexPath.row];
+            return cell
+        } else if model.modelType == .file {
+            let cell: ChatFileCell = tableView.dequeueReusableCell(withIdentifier: ChatFileCellID, for: indexPath) as! ChatFileCell
+            cell.model = dataArr[indexPath.row]
             return cell
         } else {
             let cell: ChatTimeCell = tableView.dequeueReusableCell(withIdentifier: ChatTimeCellID, for: indexPath) as! ChatTimeCell

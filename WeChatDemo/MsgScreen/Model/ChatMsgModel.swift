@@ -19,6 +19,7 @@ enum ChatMsgModelType: Int {
     case time
     case audio
     case video
+    case file
 }
 
 class ChatMsgModel: NSObject {
@@ -36,6 +37,7 @@ class ChatMsgModel: NSObject {
     var messageId: String?
     // 附件
     var messageObject: Any?
+    var messageObjectFileName: String?
     // 信息时间辍
     var time: TimeInterval?
     var timeStr: String?

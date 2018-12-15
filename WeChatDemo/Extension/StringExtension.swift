@@ -22,4 +22,17 @@ extension String {
             else { return nil }
         return from ..< to
     }
+    
+    static func fileSize(fileLength: Int64) -> String {
+        let fileLength: Double = Double(fileLength)
+        if fileLength < 1024.0 {
+            return String(format: "%.2fB", fileLength * 1.0)
+        } else if (fileLength >= 1024.0 && fileLength < (1024.0*1024.0)){
+            return String(format: "%.2fKB", fileLength/1024.0)
+        } else if (fileLength >= (1024.0*1024.0) && fileLength < (1024.0*1024.0*1024.0)) {
+           return String(format: "%.2fMB", fileLength/(1024.0*1024.0))
+        }else{
+           return String(format: "%.2fGB", fileLength/(1024.0*1024.0*1024.0))
+        }
+    }
 }

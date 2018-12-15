@@ -80,6 +80,9 @@ extension ChatMsgDataHelper {
             } else if model.modelType == .image {
                 let height = ChatImageCell.staticCellHeight(model: model, tableViewWidth: UIScreen.main.bounds.width)
                 heights.append(height)
+            } else if model.modelType == .file {
+                let height = ChatFileCell.staticCellHeight(model: model, tableViewWidth: UIScreen.main.bounds.width)
+                heights.append(height)
             } else {
                 heights.append(40)
             }

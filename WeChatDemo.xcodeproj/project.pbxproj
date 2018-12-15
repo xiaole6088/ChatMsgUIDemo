@@ -40,6 +40,7 @@
 		BBAD1A8021C39E4100EBB5DA /* MoreActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAD1A7E21C39E4100EBB5DA /* MoreActionCell.xib */; };
 		BBAD1A8221C39FF000EBB5DA /* MoreActionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD1A8121C39FF000EBB5DA /* MoreActionHelper.swift */; };
 		BBAD1A8421C3A04B00EBB5DA /* ChatSelectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD1A8321C3A04B00EBB5DA /* ChatSelectorModel.swift */; };
+		BBC3C7EA21C4D60600060FBD /* ChatFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC3C7E921C4D60600060FBD /* ChatFileCell.swift */; };
 		BBDA1F9021BFA3360007487B /* EmotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA1F8F21BFA3360007487B /* EmotionViewModel.swift */; };
 		BBDA1F9321BFAD620007487B /* EmotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA1F9121BFAD620007487B /* EmotionCell.swift */; };
 		BBDA1F9421BFAD620007487B /* EmotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDA1F9221BFAD620007487B /* EmotionCell.xib */; };
@@ -86,6 +87,7 @@
 		BBAD1A7E21C39E4100EBB5DA /* MoreActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreActionCell.xib; sourceTree = "<group>"; };
 		BBAD1A8121C39FF000EBB5DA /* MoreActionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionHelper.swift; sourceTree = "<group>"; };
 		BBAD1A8321C3A04B00EBB5DA /* ChatSelectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSelectorModel.swift; sourceTree = "<group>"; };
+		BBC3C7E921C4D60600060FBD /* ChatFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFileCell.swift; sourceTree = "<group>"; };
 		BBDA1F8F21BFA3360007487B /* EmotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionViewModel.swift; sourceTree = "<group>"; };
 		BBDA1F9121BFAD620007487B /* EmotionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCell.swift; sourceTree = "<group>"; };
 		BBDA1F9221BFAD620007487B /* EmotionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmotionCell.xib; sourceTree = "<group>"; };
@@ -134,10 +136,11 @@
 			children = (
 				BB8A2C6C21BE34ED00432091 /* BaseTableViewCell.swift */,
 				BB544BDA21C0DC2F00448A91 /* ChatTextViewCell.swift */,
-				BB8A2C7021BE3C6800432091 /* TextTableViewCell.swift */,
 				BB5819EA21BE6CDD00783C27 /* ChatImageCell.swift */,
-				BB5819E721BE6CDD00783C27 /* ChatAudioCell.swift */,
 				BB5819E821BE6CDD00783C27 /* ChatTimeCell.swift */,
+				BBC3C7E921C4D60600060FBD /* ChatFileCell.swift */,
+				BB8A2C7021BE3C6800432091 /* TextTableViewCell.swift */,
+				BB5819E721BE6CDD00783C27 /* ChatAudioCell.swift */,
 				BB5819E921BE6CDD00783C27 /* ChatVideoCell.swift */,
 				BB544BDC21C0F3BC00448A91 /* MyTextView.swift */,
 			);
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB52BE8921C241B8002AF0DF /* MsgListViewModel.swift in Sources */,
+				BBC3C7EA21C4D60600060FBD /* ChatFileCell.swift in Sources */,
 				BB8A2C7121BE3C6800432091 /* TextTableViewCell.swift in Sources */,
 				BB5819F221BE824000783C27 /* WeChatTools+Message.swift in Sources */,
 				BBAD1A7F21C39E4100EBB5DA /* MoreActionCell.swift in Sources */,

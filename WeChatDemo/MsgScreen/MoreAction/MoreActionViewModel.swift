@@ -11,6 +11,7 @@ import UIKit
 @objc protocol MoreSelectorDelegate {
     func chosePicture()
     func takePhoto()
+    func sendFile()
 }
 
 class MoreActionViewModel: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -72,6 +73,8 @@ class MoreActionViewModel: NSObject, UICollectionViewDelegate, UICollectionViewD
             self.delegate?.takePhoto()
         } else if title == "照片" {
             self.delegate?.chosePicture()
+        } else if title == "文件" {
+            self.delegate?.sendFile()
         }
     }
 }

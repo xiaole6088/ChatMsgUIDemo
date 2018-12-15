@@ -25,6 +25,12 @@ class MoreActionHelper: NSObject {
         camera.imageName = "sharemore_video"
         selectors.append(camera)
         
+        // 文件
+        let file = ChatSelectorModel()
+        file.text = "文件"
+        file.imageName = "sharemore_wallet"
+        selectors.append(file)
+        
         return selectors
     }
     
