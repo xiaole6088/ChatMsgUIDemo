@@ -44,7 +44,9 @@ let kChatBarTextViewHeight: CGFloat = kChatBarOriginHeight - 14.0
 
 // MARK: Funcs
 class ViewController: UIViewController {
+    @IBOutlet weak var emoBtn: UIButton!
     
+    @IBOutlet weak var moreBtn: UIButton!
     @IBOutlet weak var bottomMargin: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     var keyboardHeight: CGFloat = 0.0
@@ -56,9 +58,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var barHeight: NSLayoutConstraint!
     var inputTextViewCurHeight: CGFloat = kChatBarOriginHeight
     
+    @IBOutlet weak var selectorPageControl: UIPageControl!
+    @IBOutlet weak var selectorCollectionView: UICollectionView!
     @IBOutlet weak var emoPageControl: UIPageControl!
     @IBOutlet weak var emotionCollectionView: UICollectionView!
     var emotionViewModel: EmotionViewModel = EmotionViewModel()
+    var moreSelectorViewModel: MoreActionViewModel = MoreActionViewModel()
     var msgViewModel: MsgListViewModel = MsgListViewModel()
     
     var menuIndex: Int?
@@ -92,12 +97,21 @@ class ViewController: UIViewController {
         inputTextView.layer.masksToBounds = true
         inputTextView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
+        // 表情
         emotionCollectionView.delegate = self.emotionViewModel
         emotionCollectionView.dataSource = self.emotionViewModel
         emotionCollectionView.register(UINib.init(nibName: "EmotionCell", bundle: nil), forCellWithReuseIdentifier: "EmotionCell")
         self.emotionViewModel.delegate = self;
         self.emotionViewModel.weakPageControl = self.emoPageControl
         self.emoPageControl.numberOfPages = emotionViewModel.getPageControlCount()
+        
+        // 更多
+        selectorCollectionView.delegate = self.moreSelectorViewModel
+        selectorCollectionView.dataSource = self.moreSelectorViewModel
+        selectorCollectionView.register(UINib.init(nibName: "MoreActionCell", bundle: nil), forCellWithReuseIdentifier: "MoreActionCell")
+        self.moreSelectorViewModel.weakPageControl = self.selectorPageControl
+        self.moreSelectorViewModel.delegate = self
+        self.selectorPageControl.numberOfPages = self.moreSelectorViewModel.getPageControlCount()
     }
     
     @objc private func handleKeyboardWillShow(notification: NSNotification) {
@@ -144,10 +158,10 @@ class ViewController: UIViewController {
     }
     
     func resetBarFrame() {
-        if (self.currentKeyboardType == .more || self.currentKeyboardType == .emotion) && self.bottomMargin.constant != -220 {
+        if (self.currentKeyboardType == .more || self.currentKeyboardType == .emotion) && self.bottomMargin.constant != -240 {
             UIView.animate(withDuration: CATransaction.animationDuration()) { [weak self] in
                 guard let `self` = self else { return }
-                self.bottomMargin.constant = -220
+                self.bottomMargin.constant = -240
                 self.view.layoutIfNeeded()
                 self.msgViewModel.scrollToBottom(animated: false, top: false)
             }
@@ -162,17 +176,35 @@ class ViewController: UIViewController {
     }
     
     @IBAction func moreAction(_ sender: UIButton) {
-        self.currentKeyboardType = .more
-        self.inputTextView.resignFirstResponder()
-        resetBarFrame()
-        self.view.bringSubviewToFront(self.moreView)
+        if self.currentKeyboardType != .more {
+            self.currentKeyboardType = .more
+            self.inputTextView.resignFirstResponder()
+            sender.setImage(#imageLiteral(resourceName: "ToolViewKeyboard"), for: .normal)
+            resetBarFrame()
+            self.view.bringSubviewToFront(self.moreView)
+        } else {
+            self.currentKeyboardType = .text
+            self.inputTextView.becomeFirstResponder()
+            sender.setImage(#imageLiteral(resourceName: "TypeSelectorBtn_Black"), for: .normal)
+            resetBarFrame()
+        }
+        emoBtn.setImage(#imageLiteral(resourceName: "ToolViewEmotion"), for: .normal)
     }
     
     @IBAction func emojiAction(_ sender: UIButton) {
-        self.currentKeyboardType = .emotion
-        self.inputTextView.resignFirstResponder()
-        resetBarFrame()
-        self.view.bringSubviewToFront(self.emojiView)
+        if self.currentKeyboardType != .emotion {
+            self.currentKeyboardType = .emotion
+            self.inputTextView.resignFirstResponder()
+            sender.setImage(#imageLiteral(resourceName: "ToolViewKeyboard"), for: .normal)
+            resetBarFrame()
+            self.view.bringSubviewToFront(self.emojiView)
+        } else {
+            self.currentKeyboardType = .text
+            self.inputTextView.becomeFirstResponder()
+            sender.setImage(#imageLiteral(resourceName: "ToolViewEmotion"), for: .normal)
+            resetBarFrame()
+        }
+        moreBtn.setImage(#imageLiteral(resourceName: "TypeSelectorBtn_Black"), for: .normal)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -313,6 +345,18 @@ extension ViewController: EmotionViewModelDelegate {
             return
         }
         self.inputTextView.text.append(text)
+    }
+}
+
+// MARK: MoreSelectorDelegate
+extension ViewController: MoreSelectorDelegate {
+    
+    func chosePicture() {
+        print("选择照片")
+    }
+    
+    func takePhoto() {
+        print("照相")
     }
 }
 

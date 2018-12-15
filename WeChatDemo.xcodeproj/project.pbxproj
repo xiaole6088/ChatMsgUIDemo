@@ -35,6 +35,11 @@
 		BB8A2C7E21BE3E0200432091 /* Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB8A2C7C21BE3E0200432091 /* Expression.plist */; };
 		BB8A2C8021BE3F7900432091 /* WeChatTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8A2C7F21BE3F7900432091 /* WeChatTools.swift */; };
 		BB8A2C8221BE427600432091 /* ChatMsgDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8A2C8121BE427600432091 /* ChatMsgDataHelper.swift */; };
+		BBAD1A7C21C39E0D00EBB5DA /* MoreActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD1A7B21C39E0D00EBB5DA /* MoreActionViewModel.swift */; };
+		BBAD1A7F21C39E4100EBB5DA /* MoreActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD1A7D21C39E4100EBB5DA /* MoreActionCell.swift */; };
+		BBAD1A8021C39E4100EBB5DA /* MoreActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAD1A7E21C39E4100EBB5DA /* MoreActionCell.xib */; };
+		BBAD1A8221C39FF000EBB5DA /* MoreActionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD1A8121C39FF000EBB5DA /* MoreActionHelper.swift */; };
+		BBAD1A8421C3A04B00EBB5DA /* ChatSelectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD1A8321C3A04B00EBB5DA /* ChatSelectorModel.swift */; };
 		BBDA1F9021BFA3360007487B /* EmotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA1F8F21BFA3360007487B /* EmotionViewModel.swift */; };
 		BBDA1F9321BFAD620007487B /* EmotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDA1F9121BFAD620007487B /* EmotionCell.swift */; };
 		BBDA1F9421BFAD620007487B /* EmotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDA1F9221BFAD620007487B /* EmotionCell.xib */; };
@@ -76,6 +81,11 @@
 		BB8A2C7C21BE3E0200432091 /* Expression.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expression.plist; sourceTree = "<group>"; };
 		BB8A2C7F21BE3F7900432091 /* WeChatTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatTools.swift; sourceTree = "<group>"; };
 		BB8A2C8121BE427600432091 /* ChatMsgDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMsgDataHelper.swift; sourceTree = "<group>"; };
+		BBAD1A7B21C39E0D00EBB5DA /* MoreActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionViewModel.swift; sourceTree = "<group>"; };
+		BBAD1A7D21C39E4100EBB5DA /* MoreActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionCell.swift; sourceTree = "<group>"; };
+		BBAD1A7E21C39E4100EBB5DA /* MoreActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreActionCell.xib; sourceTree = "<group>"; };
+		BBAD1A8121C39FF000EBB5DA /* MoreActionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionHelper.swift; sourceTree = "<group>"; };
+		BBAD1A8321C3A04B00EBB5DA /* ChatSelectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSelectorModel.swift; sourceTree = "<group>"; };
 		BBDA1F8F21BFA3360007487B /* EmotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionViewModel.swift; sourceTree = "<group>"; };
 		BBDA1F9121BFAD620007487B /* EmotionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCell.swift; sourceTree = "<group>"; };
 		BBDA1F9221BFAD620007487B /* EmotionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmotionCell.xib; sourceTree = "<group>"; };
@@ -175,6 +185,7 @@
 				BB8A2C7F21BE3F7900432091 /* WeChatTools.swift */,
 				BB5819F121BE824000783C27 /* WeChatTools+Message.swift */,
 				BB8A2C8121BE427600432091 /* ChatMsgDataHelper.swift */,
+				BBAD1A8121C39FF000EBB5DA /* MoreActionHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 				BB8A2C6A21BE33F400432091 /* ChatMsgModel.swift */,
 				BB8A2C6E21BE3B1400432091 /* ImMessageModel.swift */,
 				BB8A2C7821BE3DC400432091 /* ChatEmotion.swift */,
+				BBAD1A8321C3A04B00EBB5DA /* ChatSelectorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,6 +223,7 @@
 				BB52BE8721C241A3002AF0DF /* ViewModel */,
 				BB5819E621BE6CC400783C27 /* Cells */,
 				BB8A2C7A21BE3E0200432091 /* Emotion */,
+				BBAD1A7A21C39DEF00EBB5DA /* MoreAction */,
 			);
 			path = MsgScreen;
 			sourceTree = "<group>";
@@ -222,6 +235,16 @@
 				BB52BE8521C1F6D1002AF0DF /* ZhuanFaViewController.storyboard */,
 			);
 			path = ForwardScreen;
+			sourceTree = "<group>";
+		};
+		BBAD1A7A21C39DEF00EBB5DA /* MoreAction */ = {
+			isa = PBXGroup;
+			children = (
+				BBAD1A7B21C39E0D00EBB5DA /* MoreActionViewModel.swift */,
+				BBAD1A7D21C39E4100EBB5DA /* MoreActionCell.swift */,
+				BBAD1A7E21C39E4100EBB5DA /* MoreActionCell.xib */,
+			);
+			path = MoreAction;
 			sourceTree = "<group>";
 		};
 		EE50420F96280661E862BF14 /* Pods */ = {
@@ -297,6 +320,7 @@
 				BB8A2C6321BE328500432091 /* LaunchScreen.storyboard in Resources */,
 				BB8A2C7D21BE3E0200432091 /* Expression.bundle in Resources */,
 				BB8A2C6021BE328500432091 /* Assets.xcassets in Resources */,
+				BBAD1A8021C39E4100EBB5DA /* MoreActionCell.xib in Resources */,
 				BB8A2C5E21BE328200432091 /* Main.storyboard in Resources */,
 				BB52BE8621C1F6D1002AF0DF /* ZhuanFaViewController.storyboard in Resources */,
 				BBDA1F9421BFAD620007487B /* EmotionCell.xib in Resources */,
@@ -352,16 +376,19 @@
 				BB52BE8921C241B8002AF0DF /* MsgListViewModel.swift in Sources */,
 				BB8A2C7121BE3C6800432091 /* TextTableViewCell.swift in Sources */,
 				BB5819F221BE824000783C27 /* WeChatTools+Message.swift in Sources */,
+				BBAD1A7F21C39E4100EBB5DA /* MoreActionCell.swift in Sources */,
 				BB8A2C6D21BE34ED00432091 /* BaseTableViewCell.swift in Sources */,
 				BB5819EC21BE6CDD00783C27 /* ChatTimeCell.swift in Sources */,
 				BB8A2C7421BE3D2500432091 /* ChatFindEmotion.swift in Sources */,
 				BBF8AB9821C146CC00E66382 /* CustomResponderTextView.swift in Sources */,
 				BB52BE8E21C245C5002AF0DF /* StringExtension.swift in Sources */,
 				BB8A2C5B21BE328200432091 /* ViewController.swift in Sources */,
+				BBAD1A8221C39FF000EBB5DA /* MoreActionHelper.swift in Sources */,
 				BB5819ED21BE6CDD00783C27 /* ChatVideoCell.swift in Sources */,
 				BB5819F021BE7F7F00783C27 /* UIView+Extension.swift in Sources */,
 				BB8A2C8221BE427600432091 /* ChatMsgDataHelper.swift in Sources */,
 				BB8A2C6B21BE33F400432091 /* ChatMsgModel.swift in Sources */,
+				BBAD1A8421C3A04B00EBB5DA /* ChatSelectorModel.swift in Sources */,
 				BB544BDD21C0F3BC00448A91 /* MyTextView.swift in Sources */,
 				BBDA1F9021BFA3360007487B /* EmotionViewModel.swift in Sources */,
 				BB5819EB21BE6CDD00783C27 /* ChatAudioCell.swift in Sources */,
@@ -374,6 +401,7 @@
 				BB544BDB21C0DC2F00448A91 /* ChatTextViewCell.swift in Sources */,
 				BB8A2C6F21BE3B1400432091 /* ImMessageModel.swift in Sources */,
 				BBDA1F9321BFAD620007487B /* EmotionCell.swift in Sources */,
+				BBAD1A7C21C39E0D00EBB5DA /* MoreActionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +548,7 @@
 			baseConfigurationReference = 3FCF19962DDF6942C51C8902 /* Pods-WeChatDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HTW6ZG346Z;
 				INFOPLIST_FILE = WeChatDemo/Info.plist;
@@ -530,6 +559,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.neusoft.WeChatDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -540,6 +570,7 @@
 			baseConfigurationReference = 0B09DC933D9481BAA5D63EDF /* Pods-WeChatDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HTW6ZG346Z;
 				INFOPLIST_FILE = WeChatDemo/Info.plist;
@@ -550,6 +581,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.neusoft.WeChatDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
